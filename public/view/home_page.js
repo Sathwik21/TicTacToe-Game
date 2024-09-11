@@ -1,7 +1,10 @@
 import { root } from "./elements.js";
 import { currentUser } from "../controller/firebase_auth.js";
 import { protectedView } from "./protected_view.js";
-import { onSubmitCalcForm } from "../controller/home_controller.js";
+import { onClickBoardButton, onClickNewGame } from "../controller/home_controller.js";
+import { TicTacToeGame } from "../model/tictactoe_game.js";
+
+export let game = new TicTacToeGame();
 
 export async function homePageView() {
      if(!currentUser) {
@@ -13,10 +16,12 @@ export async function homePageView() {
      const divWrapper = document.createElement('div');
      divWrapper.innerHTML = await response.text();
      divWrapper.classList.add('m-4', 'p-4');
-
-     const form  = divWrapper.querySelector('form');
-     form.onsubmit = onSubmitCalcForm;
      
+     const buttons = divWrapper.querySelectorAll('table button');
+     buttons.forEach(b => b.onclick = onClickBoardButton);
+     const newGameButton = divWrapper.querySelector('#button-new-game');
+     newGameButton.onclick = onClickNewGame;
+
      root.innerHTML = '';
      root.appendChild(divWrapper);
 }

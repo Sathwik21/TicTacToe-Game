@@ -1,10 +1,10 @@
-import { onClickHomeMenu, onClickMenu2Menu, onClickSignoutMenu } from "./controller/menueventhandlers.js";
+import { onClickHomeMenu, onClickPlayRecord, onClickSignoutMenu } from "./controller/menueventhandlers.js";
 import { attachAuthStateChangedObserver } from "./controller/firebase_auth.js";
 import { routing } from "./controller/route_controller.js";
 
 //menu button handlers
 document.getElementById('menu-home').onclick = onClickHomeMenu;
-document.getElementById('menu-menu2').onclick = onClickMenu2Menu;
+document.getElementById('menu-playrecord').onclick = onClickPlayRecord;
 document.getElementById('menu-signout').onclick = onClickSignoutMenu;
 
 attachAuthStateChangedObserver();
