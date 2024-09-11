@@ -5,7 +5,7 @@ import {
 import { app } from "./firebase_core.js";
 import { DEV } from "../model/constants.js";
 import { signinPageView } from "../view/signin_page.js";
-import { homePageView } from "../view/home_page.js";
+import { game } from "../view/home_page.js";
 import { routePathnames, routing } from "./route_controller.js";
 
 const auth = getAuth(app);
@@ -60,6 +60,8 @@ function authStateChangedListener(user) {
             preAuth[i].classList.replace('d-none','d-block');
         }
         history.pushState(null, null, routePathnames.HOME);
+
+        game.reset();
         signinPageView();
     }
 }

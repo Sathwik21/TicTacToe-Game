@@ -38,7 +38,7 @@ export class TicTacToeGame{
         for (let i of [0, 1, 2]) {
             this.winner = this.checkCol(i);
             if (this.winner != null) return;
-            this.winner = thus.checkRow(i);
+            this.winner = this.checkRow(i);
             if (this.winner != null) return; 
         }
 
